@@ -138,7 +138,10 @@ function App() {
           setIsLogIn(true);
           navigate("/");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          localStorage.removeItem("JWT");
+          console.log(err)
+        });
     }
   }, [navigate]);//, был isLogIn
 

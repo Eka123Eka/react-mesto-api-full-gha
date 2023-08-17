@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const {
   PORT = 3000,
   SERVER_ADR = 'http://127.0.0.1',
