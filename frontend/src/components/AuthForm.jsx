@@ -22,7 +22,7 @@ function AuthForm({ onSubmit, nameForm }) {
   return (
     nameForm === 'register'
       ? <>
-        <Header to={'/sign-in'} textLink='Войти'></Header>
+        <Header to={'/signin'} textLink='Войти'></Header>
         <Register name='register' title='Регистрация' buttonText='Зарегистрироваться' onSubmit={handleSubmit}  >
           <input className='register__input' name='Email' type='email' minLength='5' maxLength='100'
             placeholder='Email' value={email || ''} required onChange={handleChangeInput} />
@@ -31,7 +31,7 @@ function AuthForm({ onSubmit, nameForm }) {
         </Register>
       </>
       : <>
-        <Header to={'/sign-up'} textLink='Регистрация'></Header>
+        <Header to={'/signup'} textLink='Регистрация'></Header>
         <Login name='login' title='Вход' buttonText='Войти' onSubmit={handleSubmit}  >
           <input className='register__input' name='Email' type='email' minLength='5' maxLength='100'
             placeholder='Email' value={email || ''} required onChange={handleChangeInput} />

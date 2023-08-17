@@ -9,7 +9,7 @@ function Register({ name, title, buttonText, onSubmit, children }) {
         <button className='register__button' type='submit' >{buttonText}</button>
         <p className='register__text-item'>
           Уже зарегистрированы?
-          <span><Link className='register__link' to='/sign-in'> Войти</Link></span>
+          <span><Link className='register__link' to='/signin'> Войти</Link></span>
         </p>
       </form>
     </div>

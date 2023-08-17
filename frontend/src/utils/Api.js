@@ -44,8 +44,8 @@ class Api {
   }
 
   async _request(url, props, sourceError) {
-    //const res = await fetch(`${this._baseUrl}${url}`, {...props, headers: { ...props.headers, Authorization: `Bearer ${localStorage.getItem('JWT')}` }});
-    const res = await fetch(`${this._baseUrl}${url}`, props);
+    const res = await fetch(`${this._baseUrl}${url}`, {...props, headers: { ...props.headers, Authorization: `Bearer ${localStorage.getItem('JWT')}` }});
+    //const res = await fetch(`${this._baseUrl}${url}`, props);
     return this._checkResponse(res, sourceError);
   }
 
@@ -59,9 +59,10 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-63',//поменять на актуальный
+  baseUrl: 'http://api.elkod.nomoreparties.co',
+  //baseUrl: 'http://127.0.0.1',
   headers: {
-    authorization: '78fa951e-0cae-4fbe-aca5-f0de42ec035a',//сменить на получение токена с хранилища
+    authorization: '',//'78fa951e-0cae-4fbe-aca5-f0de42ec035a',//сменить на получение токена с хранилища
     'Content-Type': 'application/json'
   }
 });

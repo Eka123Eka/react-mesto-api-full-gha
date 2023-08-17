@@ -66,7 +66,7 @@ function App() {
   }
 
   function handleCardLike(currentCard) {
-    const isLiked = [...currentCard.likes].some(i => i._id === currentUser._id);
+    const isLiked = [...currentCard.likes].some(i => i._id === currentUser._id);//!
     api.toogleLikeServer(currentCard._id, isLiked)
       .then((newCard) => setCards((state) => state.map((c) => c._id === currentCard._id ? newCard : c)))
       .catch((err) => console.log(err))
@@ -130,23 +130,23 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("JWT");
     if (token) {
       auth.checkToken(token)
         .then((res) => {
-          setEmail(res.data.email);
+          setEmail(res.data.email);//!
           setIsLogIn(true);
           navigate("/");
         })
         .catch((err) => console.log(err));
     }
-  }, [isLogIn]);
+  }, [navigate]);//, был isLogIn
 
   function handleRegister(inputData) {
     auth.register(inputData)
       .then(() => {
         handleInfoTooltip({ isSuccessReg: true });
-        navigate("/sign-in");
+        navigate("/signin");
       })
       .catch((err) => {
         console.log(err);
@@ -158,7 +158,7 @@ function App() {
   function handleAuthorization(authData) {
     auth.signIn(authData)
       .then(res => {
-        res.token && localStorage.setItem('token', res.token);
+        res.token && localStorage.setItem('JWT', res.token);
         setEmail(authData.email);
         setIsLogIn(true);
         navigate("/");
@@ -167,7 +167,7 @@ function App() {
   }
 
   function handleLogOut() {
-    localStorage.removeItem("token");
+    localStorage.removeItem("JWT");
     setIsLogIn(false);
   }
 
@@ -192,13 +192,13 @@ function App() {
               email={email}
               onLogOut={handleLogOut} />}>
             </Route>
-            <Route path='/sign-up'
+            <Route path='/signup'
               element={<AuthForm nameForm='register' onSubmit={handleRegister} />}>
             </Route>
-            <Route path='/sign-in'
+            <Route path='/signin'
               element={<AuthForm nameForm='login' onSubmit={handleAuthorization} />}>
             </Route>
-            <Route path='*' element={isLogIn ? <Navigate to='/' /> : <Navigate to='/sign-in' />} />
+            <Route path='*' element={isLogIn ? <Navigate to='/' /> : <Navigate to='/signin' />} />
           </Routes>
           <Footer />
           <EditProfilePopup

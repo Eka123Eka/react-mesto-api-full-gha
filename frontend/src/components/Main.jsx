@@ -10,7 +10,7 @@ function Main({ cards, onEditAvatar, onEditProfile, onAddPlace, onCardClick, onC
 
   return (
     <>
-      <Header to={'/sign-in'} onClick={onLogOut} textLink='Выйти'>
+      <Header to={'/signin'} onClick={onLogOut} textLink='Выйти'>
         <div className="header__item">{email}</div>
       </Header>
       <main>

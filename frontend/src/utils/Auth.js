@@ -39,7 +39,8 @@ class Auth {
 }
 
 const auth = new Auth({
-  baseUrl: 'https://auth.nomoreparties.co',//поменять на бэк
+  baseUrl: 'http://api.elkod.nomoreparties.co',
+  //baseUrl: 'http://127.0.0.1',
   headers: {
     'Content-Type': 'application/json'
   }
