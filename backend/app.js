@@ -25,12 +25,6 @@ app.use(limiter);
 app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
 
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер вот-вот упадёт');
-  }, 0);
-});
-
 app.use(routes);
 app.use(errorLogger);
 app.use(errors());

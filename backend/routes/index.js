@@ -7,6 +7,12 @@ const auth = require('../middlewares/auth');
 const { NotFoundError } = require('../errors');
 const { validCreateUser, validLogin } = require('../utils/validationFieldsWithJoi');
 
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер вот-вот упадёт');
+  }, 0);
+});
+
 router.post('/signup', validCreateUser, createUser);
 router.post('/signin', validLogin, login);
 
