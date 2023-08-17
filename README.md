@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 62.84.113.141
+IP 62.84.113.141
 
 Frontend https://elkod.nomoreparties.co
 
