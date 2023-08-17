@@ -23,7 +23,7 @@ app.use(helmet());
 app.use(requestLogger);
 app.use(limiter);
 app.use(express.json());
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 
 app.use(routes);
 app.use(errorLogger);

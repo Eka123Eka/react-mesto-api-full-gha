@@ -44,8 +44,9 @@ class Api {
   }
 
   async _request(url, props, sourceError) {
-    const res = await fetch(`${this._baseUrl}${url}`, {...props, headers: { ...props.headers, Authorization: `Bearer ${localStorage.getItem('JWT')}` }});
-    //const res = await fetch(`${this._baseUrl}${url}`, props);
+    props.headers.authorization =  `Bearer ${localStorage.getItem('JWT')}`;
+    //const res = await fetch(`${this._baseUrl}${url}`, {...props, headers: { ...props.headers, authorization: `Bearer ${localStorage.getItem('JWT')}` }});
+    const res = await fetch(`${this._baseUrl}${url}`, props);
     return this._checkResponse(res, sourceError);
   }
 
@@ -59,7 +60,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://api.elkod.nomoreparties.co',
+  baseUrl: 'https://api.elkod.nomoreparties.co',
   //baseUrl: 'http://127.0.0.1',
   headers: {
     authorization: '',//'78fa951e-0cae-4fbe-aca5-f0de42ec035a',//сменить на получение токена с хранилища

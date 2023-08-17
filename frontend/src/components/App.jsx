@@ -66,7 +66,7 @@ function App() {
   }
 
   function handleCardLike(currentCard) {
-    const isLiked = [...currentCard.likes].some(i => i._id === currentUser._id);//!
+    const isLiked = [...currentCard.likes].some(i => i === currentUser._id);//!
     api.toogleLikeServer(currentCard._id, isLiked)
       .then((newCard) => setCards((state) => state.map((c) => c._id === currentCard._id ? newCard : c)))
       .catch((err) => console.log(err))
@@ -134,12 +134,12 @@ function App() {
     if (token) {
       auth.checkToken(token)
         .then((res) => {
-          setEmail(res.data.email);//!
+          setEmail(res.email);
           setIsLogIn(true);
           navigate("/");
         })
         .catch((err) => {
-          localStorage.removeItem("JWT");
+          //localStorage.removeItem("JWT");
           console.log(err)
         });
     }

@@ -14,7 +14,7 @@ class Auth {
 
   checkToken(token) {
     return this._request("/users/me", {
-      headers: { ...this._headers, Authorization: `Bearer ${token}` },
+      headers: { ...this._headers, authorization: `Bearer ${token}` },
     }, `POST ${token} - `);
   }
 
@@ -33,13 +33,13 @@ class Auth {
   }
 
   async _request(url, props, sourceError) {
-    const res = await fetch( `${this._baseUrl}${url}`, props, sourceError );
+    const res = await fetch( `${this._baseUrl}${url}`, props );
     return this._checkResponse(res, sourceError);
   }
 }
 
 const auth = new Auth({
-  baseUrl: 'http://api.elkod.nomoreparties.co',
+  baseUrl: 'https://api.elkod.nomoreparties.co',
   //baseUrl: 'http://127.0.0.1',
   headers: {
     'Content-Type': 'application/json'
