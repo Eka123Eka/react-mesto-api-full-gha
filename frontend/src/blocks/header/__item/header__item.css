@@ -1,0 +1,15 @@
+.header__item {
+  margin: 0 24px 0 0;
+  /*display: inline-block;*/
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 920px) {
+  .header__item {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

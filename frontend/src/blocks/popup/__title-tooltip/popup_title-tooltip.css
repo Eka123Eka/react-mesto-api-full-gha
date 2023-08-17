@@ -1,0 +1,26 @@
+.popup__title-tooltip {
+  margin: 0;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000;
+}
+.popup__title-tooltip:first-of-type {
+  margin-top: 32px;
+}
+.popup__title-tooltip:last-of-type {
+  margin-bottom: 60px;
+}
+@media screen and (max-width: 900px) {
+  .popup__title-tooltip {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .popup__title-tooltip:first-of-type {
+    margin-top: 40px;
+  }
+  .popup__title-tooltip:last-of-type {
+    margin-bottom: 50px;
+  }
+}

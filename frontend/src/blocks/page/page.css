@@ -1,0 +1,18 @@
+.page {
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 0 57px;
+  background-color: #000000;
+  color: white;
+  font-family: 'Inter', 'Arial', sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media screen and (max-width: 730px) {
+  .page {
+    padding-bottom: 36px;
+  }
+}
