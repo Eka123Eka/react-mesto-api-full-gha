@@ -166,7 +166,10 @@ function App() {
         setIsLogIn(true);
         navigate("/");
       })
-      .catch((err) => { console.log(err) });
+      .catch((err) => {
+        console.log(err);
+        handleInfoTooltip({ isSuccessReg: false });
+      });
   }
 
   function handleLogOut() {
